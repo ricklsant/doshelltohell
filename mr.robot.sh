@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# decimo.sh - Nosso decimo Programa em Shell - Mr. Robot
+# mr.robot.sh - Nosso Robo em Shell - Mr. Robot
 
 # Homepage: http://www.netservi.com.br
 # Autor: Ricardo Sant'Anna <ricardo.santanna@netservi.com.br
@@ -35,9 +35,13 @@ while true; do
 			DADO="$(( $RANDOM % 10 ))"
 			nmap -sS "${sites[$DADO]}"
 		;;
-	*"conecte"*|*"acesse"*|*"ssh"*)
+		*"conecte"*|*"acesse"*|*"ssh"*)
 			DADO="$(( $RANDOM % 10 ))"
 			ssh -l root "${openssh[$DADO]}"
+		;;
+		*"update"*|*"atualize"*|*"atualizar"*)
+			apt update
+			apt upgrade -y
 		;;
 	esac
 
